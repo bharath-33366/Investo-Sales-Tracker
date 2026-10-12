@@ -1,0 +1,339 @@
+    body {
+      box-sizing: border-box;
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .loading-spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast.success { background-color: #10b981; }
+    .toast.error { background-color: #ef4444; }
+    .toast.info { background-color: #3b82f6; }
+
+    .fab {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      z-index: 100;
+    }
+
+    .fab:hover {
+      transform: scale(1.1);
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 0;
+      z-index: 50;
+      overflow-x: auto;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+      min-width: 80px;
+    }
+
+    .nav-item:hover {
+      opacity: 0.7;
+    }
+
+    .nav-item.active {
+      color: #2563eb;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90%;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    input, select, textarea {
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2563eb;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      padding: 12px;
+      font-weight: 600;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    tr:hover {
+      background: #f8fafc;
+    }
+
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .status-completed {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-pending {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-paid {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .status-overdue {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .delete-confirm-btn {
+      background: #dc2626 !important;
+    }
+
+    .delete-confirm-btn:hover {
+      background: #b91c1c !important;
+    }
+
+    .payment-thumbnail {
+      border-radius: 12px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-top: 5px solid;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      position: relative;
+    }
+
+    .payment-thumbnail:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+    }
+
+    .payment-thumbnail-status {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .payment-thumbnail-status.overdue {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .payment-thumbnail-status.due-soon {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .payment-thumbnail-status.upcoming {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .payment-thumbnail-customer {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 6px;
+      color: #1f2937;
+      word-break: break-word;
+    }
+
+    .payment-thumbnail-product {
+      font-size: 0.9em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .payment-thumbnail-date {
+      font-size: 0.85em;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
+
+    .payment-thumbnail-amount {
+      font-size: 1.8em;
+      font-weight: 700;
+      margin: 12px 0;
+    }
+
+    .payment-thumbnail-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .payment-thumbnail-btn {
+      flex: 1;
+      padding: 8px 8px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8em;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .payment-thumbnail-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .payment-thumbnail-btn:active {
+      transform: scale(0.98);
+    }
+
+    .customer-thumbnail {
+      border-radius: 12px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-top: 5px solid;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+    }
+
+    .customer-thumbnail:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+    }
+
+    .customer-thumbnail-name {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    .customer-thumbnail-info {
+      font-size: 0.9em;
+      color: #6b7280;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .customer-thumbnail-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: auto;
+    }
+  
